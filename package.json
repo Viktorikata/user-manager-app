@@ -1,6 +1,7 @@
 {
-  "name": "16_05",
+  "name": "user-manager-app",
   "version": "0.1.0",
+  "description": "React-приложение с CRUD-операциями и подключением к API",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
