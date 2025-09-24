@@ -1,17 +1,23 @@
 body {
-    font-family: Papyrus, fantasy;
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
     background-color: f5f7fa;
     margin: 0;
     padding: 0;
 }
 
 .wrapper {
-    max-width: 500px;
+        max-width: 500px;
     margin: 20px auto;
     padding: 30px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
 }
 
 input {

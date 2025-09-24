@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "React-приложение с CRUD-операциями и подключением к API",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@testing-library/dom": "^10.4.0",

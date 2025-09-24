@@ -1,6 +1,10 @@
 
 import {createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+function makeId() {
+    return `${Date.now()}-${Math.random().toString(36).slice(2,8)}`
+};
+
 // Получение пользователей с сервера
 export const fetchUsers = createAsyncThunk(
     'users/fetchusers',
@@ -22,10 +26,19 @@ export const createUser = createAsyncThunk(
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newUser),
     });
+
     if (!response.ok) {
             throw new Error ('Не удалось создать пользователя');
     }
-        return await response.json();
+
+    const data = await response.json();
+
+    const id = makeId();
+    const user = {...data, ...newUser, id};
+
+    console.log('[createUser] created', user);
+    return user;
+    
     }
 );
 
@@ -79,7 +92,8 @@ const usersSlice = createSlice({
             state.users.push(action.payload);
         })
         .addCase(deleteUser.fulfilled, (state, action) => {
-            state.users = state.users.filter( user => user.id !== action.payload)
+            const id = action.meta.arg;
+            state.users = state.users.filter(user => String(user.id) !== String(id));
         })
     }
 });
